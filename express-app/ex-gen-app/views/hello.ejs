@@ -7,41 +7,23 @@
     <link rel="stylesheet" href="/stylesheet/style.css">
     <script src="/jquery"></script>
     <script>
-        $(document).ready(function(){
-            $('#btn').click(function(){
-                var n = $('#num').val();
-                $.getJSON("/ajax?id="+n,function(json){
-                    var msg = '<table>'+
-                        '<tr><th>名前</th>'+
-                        '<td>'+json.name+'</td></tr>'+
-                        '<tr><th>年齢</th>'+
-                        '<td>'+json.age+'</td></tr>'+
-                        '<tr><th>メールアドレス</th>'+
-                        '<td>'+json.mail+'</td></tr>'
-                    '</table>';
-                    $('#msg').html(msg);
-                });
-            });
-        });
+        
     </script>
 </head>
 <body>
     <h1><%=title %></h1>
 
     <div role="main">
-        <p id="msg"><%=content %></p>
-        <!--フォームの追加-->
-        
-            <input type="text" name="num" id="num"> 
-            <input type="button" id="btn" value="OK"> 
-
-
-            <br><br><br>
-            <form method = 'post' action='/hello/post'>
-                <input type="text" name="message"> 
-                <input type="submit" value="message"> 
-            </form>
-       
+        <% if(content != null) { %>
+            <ol>
+                <% for(var i in content){ %>
+                <% var obj = content[i]; %>
+                <li><a href="<%=obj.link %>">
+                        <%= obj.title %></a></li>
+            </tr>
+                <% } %>
+            </ol>
+        <% } %>
     </div>
 </body>
 </html>
