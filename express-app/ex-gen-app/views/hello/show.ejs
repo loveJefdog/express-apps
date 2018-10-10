@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="text/html" charset="UTF-8">
+    <title><%=title %></title>
+   <link rel="stylesheet" href="/stylesheet/style.css">
+    
+</head>
+<body>
+    <h1><%=title %></h1>
+
+    <div role="main">
+     <p><%= content%></p>
+        <form method='post' action='/hello/add'>
+            <table>
+            <tr>
+                <th>ID</th>
+                <td><%= mydata.id%></td>
+            </tr>
+
+            <tr>
+                <th>Name</th>
+                <td><%= mydata.name%></td>
+            </tr>
+
+            <tr>
+                <th>Mail</th>
+                <td><%= mydata.mail%></td>
+            </tr>
+
+            <tr>
+                <th>Age</th>
+                <td><%= mydata.age%></td>
+            </tr>
+
+            </table>
+            
+        </form>
+    </div>
+</body>
+</html>
